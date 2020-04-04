@@ -1,10 +1,14 @@
 module.exports = function check(str, bracketsConfig) {
-  for (let i = 0; i < bracketsConfig.length; i++) {
-    let brackets = bracketsConfig[i].join('');
-    if (str.includes(brackets)) {
-        str = str.replace(brackets, '');
-        i = -1;
-    } 
-}
-return str ? false : true;
+bracketsConfig.forEach(element => {
+  this.brackets = element.join("");
+  if (str.includes(this.brackets)) {
+      str = str.replace(this.brackets, "");
+      element -= 1
+  } 
+});
+  if (!str){
+    return true;
+  }else{
+    return false;
+  }
 }
